@@ -1,0 +1,65 @@
+/*--------------------------------------
+    Some useful classes
+--------------------------------------*/
+.l-hLine
+  hLine()
+
+.l-jLine
+  jLine()
+
+for $i in bottom middle top float
+  .l-hLine--{$i}
+    hLine($i)
+  .l-jLine--{$i}
+    jLine($i)
+
+
+.l-container
+  container()
+
+.hide-text, .text-hide
+  hide-text()
+
+ul.list-reset, ul.reset-list
+ol.list-reset, ol.reset-list
+  reset-box-model()
+  list-style-type none
+  list-style-image none
+  li
+    reset-box-model()
+
+    
+.reset
+  reset-box-model()
+
+.reset-font, .font-reset
+  reset-font()
+
+.link-decorated
+  text-decoration: $link-decoration;
+  &:hover,&:focus
+    text-decoration: $link-decoration-hover
+
+.link-decorated-reverse
+  text-decoration: $link-decoration-hover
+  &:hover,&:focus
+    text-decoration: $link-decoration
+
+.is-shown
+  visibility visible !important
+  position relative !important
+
+.is-hidden
+  visibility hidden !important
+  position absolute !important
+
+.is-error
+  small&
+    color: #e34f59 !important
+    font-size: 11px !important
+    position absolute !important
+
+  input&
+    border #e34f59 !important
+
+

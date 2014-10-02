@@ -1,0 +1,48 @@
+*,*:before,*:after
+  box-sizing: border-box
+
+html, button, input, select, textarea
+  font-family: $base-f
+  color: $base-font-c
+
+body
+  font-size: $base-f-size
+  line-height: $base-f-height
+  background-color: $body-c
+
+/*
+
+input:not([type=radio]):not([type=checkbox]), textarea
+  height: $input-h
+  padding 0 10px
+  label &
+    display block
+    width: 100%
+    margin-bottom: 10px
+
+for $type in radio checkbox
+[type={$type}]{}
+*/
+
+textarea
+  vertical-align: top
+  resize: none
+
+button
+  border: none
+  background-color: transparent
+
+
+label
+  display block
+  span
+    display block
+    margin-bottom: 2px
+
+
+
+a
+  color: $brand-c
+  @extend .link-decorated
+  &:focus
+    outline 1px dotted @color

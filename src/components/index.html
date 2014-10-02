@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="ie ie9" lang="en"> <![endif]-->
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!--SEO skeleton-->
+  <meta name="robots" content="">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <!--allows ie8 users to use Google Chrome Frame plugin in our browser-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!--Analytics include-->
+  <link href="//www.google-analytics.com" rel="dns-prefetch">
+  <link href="//ajax.googleapis.com" rel="dns-prefetch">
+  <!--CSS include-->
+  <link href="assets/css/core.css" rel="stylesheet">
+  <link href="assets/css/write-your-code-here.css" rel="stylesheet">
+</head>
+
+<body itemscope itemtype='http://schema.org/WebPage'>
+
+<!--HEADER start-->
+<header class="l-header">
+  <!--logo-->
+  <a class="logo" href="/" itemprop='url'>
+    <img src="assets/img/logo.png" alt="" itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+    <span class="logo__hidden" itemprop="name"></span>
+  </a>
+  <!--navigation-->
+  <nav class="nav" role="navigation">
+    <a href="#" class="nav__link is-active"></a>
+    <a href="#" class="nav__link"></a>
+  </nav>
+</header>
+<!--HEADER end-->
+
+<!--MAIN start-->
+<main class="l-main">
+
+  <!--main column-->
+  <div class="l-main__column--primary">
+
+    <!--template: main page-->
+    include "templates/main"
+
+  </div>
+  <!--end center column-->
+
+  <!--sidebar-->
+  <aside class="l-main__column--secondary"></aside>
+  <!--sidebar-->
+
+</main>
+<!--MAIN end-->
+
+<!--start FOOTER-->
+<footer class="l-footer">
+  <!--copyright-->
+  <small class="copyright"></small>
+</footer>
+<!-- end FOOTER -->
+
+
+
+<!--SCRIPTS  start-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!--<script src="assets/js/plugins.js"></script>-->
+<script src="assets/js/plugins.min.js"></script>
+<script src="assets/js/core.js"></script>
+
+<script>
+  (function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
+    (f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
+      l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXXXXX-XX');
+  ga('send', 'pageview');
+</script>
+<!--SCRIPTS end-->
+
+</body>
+</html>

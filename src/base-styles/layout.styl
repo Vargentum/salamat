@@ -1,0 +1,26 @@
+.l-header
+  height: $header-h;
+
+.l-column--primary
+  width: $column-primary-w
+
+.l-column--secondary
+  width $column-secondary-w
+
+.l-footer
+  height: $footer-h;
+
+/*--------------------------------------
+   Sticky footer
+--------------------------------------*/
+if $sticky-footer
+
+  .flexbox
+
+    body
+      display: flex
+      min-height: 100vh
+      flex-direction: column
+
+    .l-main
+      flex: 1

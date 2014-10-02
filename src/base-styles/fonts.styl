@@ -1,0 +1,13 @@
+/*--------------------------------------
+    Font embeding
+--------------------------------------*/
+if $font-face
+
+  for $font in $brand-f $title-f
+    @font-face
+      font-family: $font
+      font-style: normal
+      font-weight: normal
+      src: url($font-path + $font + '.eot')
+      src: url($font-path + $font + '.eot?#iefix') format("embedded-opentype"),
+           url($font-path + $font + '.woff') format("woff")

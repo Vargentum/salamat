@@ -1,0 +1,7 @@
+.uv-grid
+  cf()
+
+  for $each in 1..$grid-columns
+
+    &__col--{$each}
+      col(1/$each, gutter: $grid-gutter)
