@@ -1,5 +1,5 @@
 "use strict"
-LIVERELOAD_PORT = 35729
+LIVERELOAD_PORT = 100000
 lrSnippet = require("connect-livereload")(port: LIVERELOAD_PORT)
 mountFolder = (connect, dir) ->
   connect.static require("path").resolve(dir)
@@ -129,7 +129,7 @@ module.exports = (grunt) ->
 
 
     sprite:
-      images:
+      compile:
         src: ['./src/sprites/{,**/}*.png']
         destImg: './app/assets/img/<%= pkg.name %>-sprite.png'
         destCSS: './src/base-styles/sprite-map.styl'
@@ -161,18 +161,18 @@ module.exports = (grunt) ->
         tasks: ["process-markup"]
 
       sprites:
-        files: "<%= sprite.images.src %>"
+        files: "<%= sprite.compile.src %>"
         tasks: ["process-sprites"]
 
       icons:
-        files: "<%= webfont.images.src %>"
+        files: "<%= webfont.compile.src %>"
         tasks: ["process-icons"]
 
       livereload:
         options:
           livereload: LIVERELOAD_PORT
 
-        files: ["<%= project.app %>/**"]
+        files: ["src/**"]
 
   grunt.registerTask "process-html", [
     "includes"
@@ -215,4 +215,5 @@ module.exports = (grunt) ->
     "open"
     "watch"
   ]
+  grunt.registerTask "s", ["server"]
   return
