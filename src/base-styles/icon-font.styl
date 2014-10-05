@@ -1,0 +1,17 @@
+/*--------------------------------------
+    Icon font mapping
+--------------------------------------*/
+$icon-fonts = ei  elegant-icons
+             ,fa  font-awesome
+             ,sli simple-line-icons
+
+for $each in $icon-fonts
+  .icon-{$each[0]}:before
+    font-family $each[1]
+    speak none  
+    font-weight normal
+    font-variant normal
+    text-transform none
+    line-height 1
+    -webkit-font-smoothing antialiased
+    -moz-osx-font-smoothing grayscale
