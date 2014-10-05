@@ -1,5 +1,5 @@
 "use strict"
-LIVERELOAD_PORT = 100000
+LIVERELOAD_PORT = 35729
 lrSnippet = require("connect-livereload")(port: LIVERELOAD_PORT)
 mountFolder = (connect, dir) ->
   connect.static require("path").resolve(dir)
@@ -29,8 +29,6 @@ module.exports = (grunt) ->
    
     clean: [
       "./temp"
-      "./app/assets/css/"
-      "./app/assets/js/"
     ]
 
 
