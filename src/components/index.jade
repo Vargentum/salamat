@@ -3,6 +3,7 @@ doctype html
 <!--[if IE 9]> <html class="ie ie9" lang="en"> <![endif]-->
 html.no-js(lang='en')
 
+
   head
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     //meta(name='viewport', content='width=device-width,initial-scale=1'
@@ -25,10 +26,37 @@ html.no-js(lang='en')
     // HEADER
     header
 
-      .header__pre-header
-        i.icon-fa.fa-heart
-        i.icon-sli.sli-screen-smartphone
-        i.icon-ei.ei-mail_alt
+      .pre-header__shell
+        .pre-header
+          address.pre-header__section
+            
+            //- social buttons
+            ul.pre-header__social
+              li
+                a.pre-header__link(href='')
+                  i.icon-fa.fa-twitter.pre-header__icon
+              li
+                a.pre-header__link(href='')
+                  i.icon-fa.fa-facebook.pre-header__icon
+              li
+                a.pre-header__link(href='')
+                  i.icon-fa.fa-google-plus.pre-header__icon
+
+            //- phone
+            p
+              span.pre-header__info
+                i.icon-fa.fa-phone.pre-header__icon
+                span +1 (800) 5260 888 52 63
+
+            //- email
+            p
+              a.pre-header__info.pre-header__link(href='mailto:vargentum@gmail.com')
+                i.icon-fa.fa-envelope.pre-header__icon
+                span vargentum@gmail.com
+
+
+          .pre-header__section
+
 
 
 
