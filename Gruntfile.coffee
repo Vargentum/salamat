@@ -164,7 +164,7 @@ module.exports = (grunt) ->
 
       icons:
         files: "<%= webfont.compile.src %>"
-        tasks: ["process-icons"]
+        tasks: ["process-graphics"]
 
       livereload:
         options:
