@@ -4,5 +4,5 @@ node_modules
 psd/
 temp/
 app/
-src/base-styles/icons-map
+src/base-styles/graphics-map/
 *.sublime*
