@@ -1,5 +1,5 @@
 /*--------------------------------------
-    Some mixins from Nib library
+  Size mixin
 --------------------------------------*/
 size()
   if length(arguments) == 1
@@ -9,27 +9,10 @@ size()
     width: arguments[0]
     height: arguments[1]
 
-hide-text()
-  font: 0/0 serif;
 
-border(color, args...)
-  if color is a 'color'
-    border: 1px solid color args
-  else
-    border: arguments
-
-replace-text(image, x=50%, y=50%)
-  hide-text()
-  background-image image
-  background-repeat no-repeat
-  background-position x y
-
-ellipsis(no-wrap = true)
-  if no-wrap
-    white-space: nowrap
-    overflow: hidden
-    text-overflow: ellipsis
-
+/*--------------------------------------
+  Position mixin
+--------------------------------------*/
 -pos(type, args)
   i = 0
   position: unquote(type)
@@ -37,6 +20,7 @@ ellipsis(no-wrap = true)
     if length(args) > i
       {args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
     i += 1
+
 
 fixed()
   -pos('fixed', arguments)
@@ -46,6 +30,22 @@ absolute()
 
 relative()
   -pos('relative', arguments)
+
+
+/*--------------------------------------
+  Multi-lines ellipsis mixin (only in webkit)
+--------------------------------------*/
+ellipsis()
+  display block
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+  if arguments
+    white-space normal
+    display -webkit-box
+    -webkit-box-orient vertical  
+    -webkit-line-clamp arguments[0]
 
 
 /*--------------------------------------
@@ -110,19 +110,38 @@ title($size, $color = $title-c)
 /*--------------------------------------
     Layout helpers
 --------------------------------------*/
-hLine($align = baseline, $gutter = 0)
-  margin-left: -($gutter);
+hLine($align = baseline, $gutter = auto)
   &>*
     display: inline-block
     vertical-align: $align
-    margin-left: $gutter;
 
+  if $gutter != auto
+    margin-left: -($gutter)
+    &>*
+      margin-left: $gutter
 
   if $align == none
     &>*
       display: block
       vertical-align: auto
+      display initial
       vertical-align: initial
+
+
+
+vLine()
+  &>*
+    margin-bottom: arguments
+    &:last-child
+      margin-bottom: 0
+
+
+jLine()
+  clearfix()
+  &>*:last-child
+    float: right
+  &>*:first-child
+    float: left
 
 
 fLine()
@@ -131,44 +150,35 @@ fLine()
   align-items:     arguments[1]
 
 
-jLine($align = baseline)
+
+justifize($align-items = center)
   .flexbox &
-    fLine space-between center
-
-    if $align == top
-      align-items flex-start
-
-    if $align == bottom
-      align-items flex-end
-
-    if $align == middle
-      align-items center
-
-    if $align == stretch
-      align-items stretch
+    fLine space-between $align-items
 
   .no-flexbox &
-    hLine $align
+    jLine()
 
-    if $align == stretch
-      hLine middle
 
-    text-align: justify
-    font-size: 1px
-    line-height: 0
-    text-justify: newspaper
-    zoom: 1
-    text-align-last: justify
-    &:after
-      pi()
-      height: 0
-      overflow: hidden
-      visibility: hidden
-      width: 100%
-    &>*
-      text-align: left
-      font-size: $base-f-size
-      line-height: $base-f-height
+
+vAlign($type = middle)
+  hLine $type
+  &:before
+    pi $type
+    size: 0 100%
+  //prevent bugs on small screens
+  white-space nowrap
+  &>*
+    white-space normal
+
+
+ctr-at()
+  .flexbox &
+    fLine center center
+
+  .no-flexbox &
+    text-align center
+    if arguments
+      line-height arguments
 
 
 
@@ -217,6 +227,28 @@ container($width = $base-max-w)
   padding-left: 10px
   padding-right: 10px
 
+/*--------------------------------------
+  Margin & Padding axis
+--------------------------------------*/
+-hlpr(prop1, prop2, args)
+  {prop1} args[0]
+  if args[1]
+    {prop2} args[1]
+  else 
+    {prop2} args[0]
+
+margin-x()
+  -hlpr(margin-right, margin-left, arguments)
+
+margin-y()
+  -hlpr(margin-top, margin-bottom, arguments)
+
+padding-x()
+  -hlpr(padding-right, padding-left, arguments)
+
+padding-y()
+  -hlpr(padding-top, padding-bottom, arguments)
+
 
 /*--------------------------------------
     Responsive helpers
@@ -257,11 +289,32 @@ fluid-width($static-w, $parent-w = $base-max-w)
 fluid-prop($prop-name, $static-w, $parent-w)
   {$prop-name}: $static-w / $parent-w * 100%
 
+
+
+
 /*--------------------------------------
-    Unsorted
+  MISC  
 --------------------------------------*/
+
+border(color, args...)
+  if color is a 'color'
+    border: 1px solid color args
+  else
+    border: arguments
+
+
+replace-text(image, x=50%, y=50%)
+  hide-text()
+  background-image image
+  background-repeat no-repeat
+  background-position x y
+
+
+
+
 test($color = red)
   border $color !important
+
 
 trans()
   transition-property arguments[0]
@@ -270,30 +323,17 @@ trans()
   else
     transition-duration $transition-duration
 
+
 pressable($deep = 1px)
   position relative
   &:active
     top $deep
 
-text-gradient()
-  background: -webkit-linear-gradient(arguments[0], arguments[1])
-  -webkit-background-clip: text
-  -webkit-text-fill-color: transparent
 
-
-text-hide()
+hide-text()
   font: 0/0 serif
   text-shadow: none
   color: transparent
   if arguments[0] == none
     font:  $base-f-size/$base-f-height $base-f
     color: inherit
-
-
-pattern()
-  pb(left top)
-  size 100%
-  img('pattern-base.png')
-  background-repeat repeat
-  if arguments
-    opacity arguments
