@@ -232,6 +232,7 @@ module.exports = (grunt) ->
   ]
   grunt.registerTask "build", [
     "clean"
+    "copy"
     "process-graphics"
     "concat"
     "process-plugins"
