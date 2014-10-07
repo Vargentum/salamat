@@ -155,7 +155,7 @@ module.exports = (grunt) ->
       png:
         src: ['./src/graphics/{,**/}*.png']
         destImg: './app/assets/img/<%= pkg.name %>-sprite.png'
-        destCSS: './src/base-styles/graphics-map/sprite-map.styl'
+        destCSS: './src/base-styles/graphics-map/sprites.styl'
         imgPath: '../img/<%= pkg.name %>-sprite.png'
         algorithm: 'binary-tree'
         padding: 2
