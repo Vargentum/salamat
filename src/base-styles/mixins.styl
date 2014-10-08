@@ -283,6 +283,33 @@ h-min()
     {block}
 
 
+/*
+  Bootstrap inspired breakpoint ranges
+
+  lg - large      (960px and higher)
+  md - middle     (from 768px to 960px)
+  sm - small      (from 480px to 768px)
+  xs - very small (480px and lower)
+*/
+
+lg()
+  +w-min($desktop-b)
+    {block}
+
+md()
+  +b('min-width:'+$tablet-b 'max-width:'+$desktop-b)
+    {block}
+
+sm()
+  +b('min-width:'+$mobile-b 'max-width:'+$tablet-b)
+    {block}
+
+xs()
+  +w-max($mobile-b)
+    {block}
+
+
+
 fluid-width($static-w, $parent-w = $base-max-w)
   width: $static-w / $parent-w * 100%
 
@@ -310,8 +337,6 @@ replace-text(image, x=50%, y=50%)
   background-position x y
 
 
-
-
 test($color = red)
   border $color !important
 
@@ -337,3 +362,13 @@ hide-text()
   if arguments[0] == none
     font:  $base-f-size/$base-f-height $base-f
     color: inherit
+
+
+hide()
+  display none !important
+
+show()
+  display block !important
+
+show-as()
+  display arguments !important
