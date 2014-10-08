@@ -42,17 +42,17 @@ module.exports = (grunt) ->
 
     concat:
       plugins:
-        src: ["./src/plugins/{,*}*.js"]
+        src: ["./src/plugins/{,**/}*.js"]
         dest: "./app/assets/js/<%= pkg.name %>-plugins.js"
 
       components:
-        src: ["./src/components/{,*}*.coffee"]
+        src: ["./src/components/{,**/}*.coffee"]
         dest: "./temp/components.coffee"
 
       styles:
         src: [
           './src/base-styles/core.styl'
-          "./src/components/{,*/}*.styl"
+          "./src/components/{,**/}*.styl"
         ]
         dest: "./temp/styles.styl"
 
