@@ -28,19 +28,20 @@ html.no-js(lang='en')
 
       .pre-header__shell
         .pre-header
-          address.pre-header__section
+          address.pre-header__section--lt
             
-            //- social buttons
-            ul.pre-header__social
-              li
-                a.pre-header__link(href='')
-                  i.icon-fa.fa-twitter.pre-header__icon
-              li
-                a.pre-header__link(href='')
-                  i.icon-fa.fa-facebook.pre-header__icon
-              li
-                a.pre-header__link(href='')
-                  i.icon-fa.fa-google-plus.pre-header__icon
+            //- links to social networks
+            div
+              ul.pre-header__social
+                li
+                  a.pre-header__link(href='')
+                    i.icon-fa.fa-twitter.pre-header__icon
+                li
+                  a.pre-header__link(href='')
+                    i.icon-fa.fa-facebook.pre-header__icon
+                li
+                  a.pre-header__link(href='')
+                    i.icon-fa.fa-google-plus.pre-header__icon
 
             //- phone
             p
@@ -55,18 +56,41 @@ html.no-js(lang='en')
                 span vargentum@gmail.com
 
 
-          .pre-header__section
+          .pre-header__section--rt
+            select
+              option EN
+              option GE
+              option UA
+
+            select
+              option USD
+              option EUR
+              option UAH
+
+            a.pre-header__link(href="#") Log In
 
 
+      .header__shell 
+        .header    
 
+          a.header__logo(href='/')
+            i.header__logo__icon
+            span Salamat
+            
 
-      a.logo(href='/', itemprop='url')
-        img(src='', alt='', itemprop='logo', itemscope='', itemtype='http://schema.org/ImageObject')
-        span.logo__hidden(itemprop='name')
+          nav
+            ul.header__nav
+              li.header__nav__unit
+                a.header__nav__link(href="#") Home
+                ul.header__nav__dropdown
+                  li.header__nav__unit
+                    a.header__nav__link(href="#")
 
-      nav.nav(role='navigation')
-        a.nav__link.is-active(href='#')
-        a.nav__link(href='#')
+              li.header__nav__unit
+                a.header__nav__link(href="#") Portfolio
+                ul.header__nav__dropdown
+                  li.header__nav__unit
+                    a.header__nav__link(href="#")
 
 
     // CONTENT
@@ -86,5 +110,5 @@ html.no-js(lang='en')
 
 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-    script(src='assets/js/reagent-plugins.js')
-    script(src='assets/js/reagent-components.js')
+    script(src='assets/js/salamat-plugins.js')
+    script(src='assets/js/salamat-components.js')

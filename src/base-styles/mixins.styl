@@ -228,9 +228,9 @@ container($width = $base-max-w)
   padding-right: 10px
 
 /*--------------------------------------
-  Margin & Padding axis
+  XY axis helpers
 --------------------------------------*/
--hlpr(prop1, prop2, args)
+-xy(prop1, prop2, args)
   {prop1} args[0]
   if args[1]
     {prop2} args[1]
@@ -238,17 +238,25 @@ container($width = $base-max-w)
     {prop2} args[0]
 
 margin-x()
-  -hlpr(margin-right, margin-left, arguments)
+  -xy(margin-right, margin-left, arguments)
 
 margin-y()
-  -hlpr(margin-top, margin-bottom, arguments)
+  -xy(margin-top, margin-bottom, arguments)
 
 padding-x()
-  -hlpr(padding-right, padding-left, arguments)
+  -xy(padding-right, padding-left, arguments)
 
 padding-y()
-  -hlpr(padding-top, padding-bottom, arguments)
+  -xy(padding-top, padding-bottom, arguments)
+  
+/* works fine with border() mixin */
+border-x()
+  if arguments == none
+    -xy(border-right, border-left, arguments)
 
+border-y()
+  if arguments == none
+   -xy(border-top, border-bottom, arguments)
 
 /*--------------------------------------
     Responsive helpers
@@ -342,7 +350,9 @@ test($color = red)
 
 
 trans()
-  transition-property arguments[0]
+  if arguments[0] == true
+    transition-property arguments[0]
+
   if arguments[1] == true
     transition-duration arguments[1]
   else

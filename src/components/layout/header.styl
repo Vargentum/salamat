@@ -1,10 +1,16 @@
+/*------------------------------------------------
+  Pre Header
+------------------------------------------------*/
+
 .pre-header
-  padding 15px 0
+  container()
+  justifize()
+  padding-y 15px
   font-size 12px
   color #8A8D94
-  justifize()
-  container()
 
+  +xs()
+    hide()
   
   //simple bricks
 
@@ -29,8 +35,12 @@
     background-color #f5f7f8
 
   
-  &__section
+  &__section--lt
     hLine baseline 35px
+
+
+  &__section--rt
+    hLine baseline 25px
 
 
   &__social
@@ -39,3 +49,100 @@
   
   &__info
     hLine baseline 5px
+
+
+
+
+
+/*------------------------------------------------
+  Header (main part)
+------------------------------------------------*/
+.header
+  $header-bg-c = #fff
+  $header-border-c = #e5e8eb
+  container()
+  justifize()
+  color #6E7179
+  font-weight 100
+  
+  *
+    font-weight inherit
+    color inherit
+
+
+  &__shell
+    background-color $header-bg-c
+    border $header-border-c
+    border-x none
+
+
+  /*LOGO component*/
+  &__logo
+    hLine middle 15px
+    text-decoration none
+    font-size 30px
+    font-family $brand-f
+    
+
+    &__icon
+      size 50px
+      position relative
+      border-radius 50%
+      background-color #285FDB
+      background-image linear-gradient(to top, #28DBC4 0%, #285FDB 100%)
+      font-size 28px
+      color $header-bg-c
+
+      &:before
+        content 'S'
+        ctr()
+
+
+  /*Navigation component*/
+  &__nav
+    font-size 16px
+    font-family $brand-f
+    hLine top
+
+    &__unit
+      position relative
+
+
+    &__link
+      display block
+      position relative
+      height 80px
+      ctr-at @height
+      padding-x 30px
+      margin-left -1px
+      border $border-c
+      border-y none
+      overflow hidden
+      text-decoration none
+
+      &:before
+        pb left top
+        size 100% 3px
+        background-color #285fdb
+        transform translateY(-100%)
+        trans translate
+
+
+      .is-active > &:before,
+      &:hover:before
+        transform translateY(0)
+
+
+    &__dropdown
+      test()
+      absolute left top 100%
+
+
+
+
+
+
+
+
+
+
