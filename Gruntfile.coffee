@@ -29,15 +29,23 @@ module.exports = (grunt) ->
    
     clean: [
       "./temp"
+      "./app"
     ]
 
-    # Need for safe include 3 icon-fonts
+
     copy: 
       webfont:
         expand: on
         cwd: './src/webfont'
         src: ['**/*']
         dest: './app/assets' 
+
+      docs_assets:
+        expand: on
+        cwd: "./app/assets/"
+        src: ["**"]
+        dest: "./app/docs/assets/" 
+
 
 
     concat:
@@ -168,6 +176,14 @@ module.exports = (grunt) ->
         path: "http://localhost:<%= connect.options.port %>"
 
 
+     dss:
+      docs:
+        src: ["<%= stylus.styles.src %>"]
+        dest: "app/docs/"
+        options:
+          include_empty_files: no
+          template: "src/docs/"
+
 
     watch:
       stylus:
@@ -198,11 +214,16 @@ module.exports = (grunt) ->
         options:
           reload: on
 
+      docs: 
+        files: "<%= project.styles %>"
+        tasks: ["dss"]
+
       livereload:
         options:
           livereload: LIVERELOAD_PORT
 
         files: ["src/**"]
+
 
   grunt.registerTask "process-html", [
     "includes"
@@ -230,15 +251,20 @@ module.exports = (grunt) ->
     "coffee"
     "uglify:components"
   ]
+  grunt.registerTask "generate_docs",[
+    "dss"
+    "copy:docs_assets"
+  ]
   grunt.registerTask "build", [
     "clean"
-    "copy"
+    "copy:webfont"
     "process-graphics"
     "concat"
     "process-plugins"
     "process-components"
     "process-styles"
     "process-markup"
+    "generate_docs"
   ]
   grunt.registerTask "default", ["build"]
   grunt.registerTask "server", [
