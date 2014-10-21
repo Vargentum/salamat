@@ -73,24 +73,98 @@ html.no-js(lang='en')
       .header__shell 
         .header    
 
+          nav.nav__shell
+            ul.nav
+              li.nav__link__shell
+                a.nav__link(href="#") Home
+
+              li.nav__link__shell
+                a.nav__link(href="#") Portfolio
+
+              li.nav__link__shell
+                a.nav__link(href="#") Services
+
+              li.nav__link__shell
+                a.nav__link(href="#") Blog
+
+              li.nav__link__shell.nav__mega-dropdown__shell
+                a.nav__link(href="#") Pages
+                //- Mega Dropdown
+                div.nav__mega-dropdown
+                  section.nav__mega-dropdown__unit
+                    header.nav__mega-dropdown__unit__title Menu section 1
+                    ul
+                      li
+                        a.nav__mega-dropdown__unit__link Menu item 1
+                      li
+                        a.nav__mega-dropdown__unit__link Menu item 2
+                      li
+                        a.nav__mega-dropdown__unit__link Menu item 3
+                      li
+                        a.nav__mega-dropdown__unit__link Menu item 4                  
+                      li
+                        a.nav__mega-dropdown__unit__link Menu item 5
+                  
+
+
+              li.nav__link__shell.nav__dropdown__shell
+                a.nav__link(href="#") Shop
+                //- Dropdown 1-level
+                ul.nav__dropdown
+                  li.nav__dropdown__link__shell
+                    a.nav__dropdown__link(href="#") Menu item 1
+
+                  li.nav__dropdown__link__shell.nav__dropdown--sub__shell
+                    a.nav__dropdown__link(href="#") Menu item 2
+                    //- Dropdown 2-level (right)
+                    ul.nav__dropdown--sub.nav__dropdown--sub--R
+                      li.nav__dropdown__link__shell
+                        a.nav__dropdown__link(href="#") Menu item 2.1
+
+                      li.nav__dropdown__link__shell
+                        a.nav__dropdown__link(href="#") Menu item 2.2
+
+                      li.nav__dropdown__link__shell
+                        a.nav__dropdown__link(href="#") Menu item 2.3
+
+                  li.nav__dropdown__link__shell.nav__dropdown--sub__shell
+                    a.nav__dropdown__link(href="#") Menu item 3
+                    //- Dropdown 2-level (left)
+                    ul.nav__dropdown--sub.nav__dropdown--sub--L
+                      li.nav__dropdown__link__shell
+                        a.nav__dropdown__link(href="#") Menu item 3.1
+
+                      li.nav__dropdown__link__shell
+                        a.nav__dropdown__link(href="#") Menu item 3.2
+
+                      li.nav__dropdown__link__shell.nav__dropdown--sub__shell
+                        a.nav__dropdown__link(href="#") Menu item 3.3
+
+                        //- Dropdown 3-level (left)
+                        ul.nav__dropdown--sub.nav__dropdown--sub--L
+                          li.nav__dropdown__link__shell
+                            a.nav__dropdown__link(href="#") Menu item 3.3.1
+
+                          li.nav__dropdown__link__shell
+                            a.nav__dropdown__link(href="#") Menu item 3.3.3
+
+                          li.nav__dropdown__link__shell
+                            a.nav__dropdown__link(href="#") Menu item 3.3.3
+
+
+
+              li.nav__link__shell
+                a.nav__link(href="#")
+
+              li.nav__link__shell
+                a.nav__link(href="#")
+
+
+
           a.header__logo(href='/')
             i.header__logo__icon
             span Salamat
             
-
-          nav
-            ul.header__nav
-              li.header__nav__unit
-                a.header__nav__link(href="#") Home
-                ul.header__nav__dropdown
-                  li.header__nav__unit
-                    a.header__nav__link(href="#")
-
-              li.header__nav__unit
-                a.header__nav__link(href="#") Portfolio
-                ul.header__nav__dropdown
-                  li.header__nav__unit
-                    a.header__nav__link(href="#")
 
 
     // CONTENT

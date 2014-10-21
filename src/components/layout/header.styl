@@ -68,10 +68,10 @@
   $header-bg-c = #fff
   $header-border-c = #e5e8eb
   container()
-  justifize()
   color #6E7179
   font-weight 100
-  
+  position relative
+
   *
     font-weight inherit
     color inherit
@@ -85,6 +85,7 @@
 
   /*LOGO component*/
   &__logo
+    ctr y
     hLine middle 15px
     text-decoration none
     font-size 30px
@@ -105,51 +106,132 @@
         ctr()
 
 
-  /*Navigation component*/
-  &__nav
-    font-size 16px
-    font-family $brand-f
-    hLine top
 
-    &__unit
+
+
+/*Navigation component*/
+.nav
+  display inline-block
+  text-align left
+  hLine top
+  font-size 16px
+  font-family $brand-f
+
+
+  &__shell
+    background-color #fff
+    position relative
+    text-align right
+
+
+  &__link
+    display block
+    position relative
+    height 80px
+    ctr-at @height
+    padding-x 30px
+    margin-left -1px
+    border $border-c
+    border-y none
+    background-color #fff
+    overflow hidden
+    text-decoration none
+    trans border-bottom-color
+
+    &:before
+      pb left top
+      size 100% 3px
+      background-color #285fdb
+      transform translateY(-100%)
+      trans translate
+
+    &:hover,
+    &:focus,
+    &__shell:hover &
+      border-bottom-color transparent
+      &:before
+        transform translateY(0)
+
+
+  &__dropdown
+    z-index -1
+    absolute left top 100%
+    transform translateY(-100%)
+    trans transform
+
+    &__shell
       position relative
+
+    &__shell:hover &
+      transform translateY(0)
 
 
     &__link
       display block
-      position relative
-      height 80px
-      ctr-at @height
+      width 210px
+      min-height 50px
       padding-x 30px
-      margin-left -1px
-      border $border-c
-      border-y none
-      overflow hidden
+      background-color #fff
+      font-size 15px
+      font-weight 300
+      color #8A8D94 
       text-decoration none
+      trans()
+      border $border-c
+      margin-bottom -1px
 
-      &:before
-        pb left top
-        size 100% 3px
-        background-color #285fdb
-        transform translateY(-100%)
-        trans translate
+      .flexbox &
+        fLine flex-start center
+
+      .no-flexbox &
+        padding-y 10px
+
+      &:hover,
+      &:focus,
+      &__shell:hover > &  //only for top level unit
+        background-color #fbfcfd
+        color #285FDB
+
+    // sub-dropdown (can appear left or right, support infinite deeping level)
+    &--sub
+      position absolute
+      top 0
+      display none
+
+      &__shell
+        position relative
+
+      &__shell:hover > &
+        display block
+
+      &--L
+        right 100%
+        margin-right -1px
+
+      &--R
+        left 100%
+        margin-left -1px
 
 
-      .is-active > &:before,
-      &:hover:before
-        transform translateY(0)
+  //full width dropdown
+  &__mega-dropdown  
+    z-index -1
+    absolute left right top 100%
+    transform translateY(-105%)
+    trans transform
+    background-color #FFF
+    border #E5E8EB
+    border-radius 0px 0px 4px 4px
+    box-shadow 0 1px 2px rgba(138, 141, 148, 0.1)
+    
+    &__shell:hover &
+      transform translateY(0)
 
 
-    &__dropdown
-      test()
-      absolute left top 100%
+    &__unit
+
+      &__title
+        test()
 
 
-
-
-
-
-
-
-
-
+      
