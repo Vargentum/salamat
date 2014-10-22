@@ -10,7 +10,7 @@ html.no-js(lang='en')
     
     //- Fonts
     link(href='http://fonts.googleapis.com/css?family=Roboto:400,100', rel='stylesheet')
-    link(href='http://fonts.googleapis.com/css?family=Ubuntu', rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,300', rel='stylesheet')
     //- Primary stylesheet
     link(href='assets/css/salamat-styles.css', rel='stylesheet')
     //- Icon Fonts
@@ -75,89 +75,120 @@ html.no-js(lang='en')
 
           nav.nav__shell
             ul.nav
-              li.nav__link__shell
+              li
                 a.nav__link(href="#") Home
 
-              li.nav__link__shell
+              li
                 a.nav__link(href="#") Portfolio
 
-              li.nav__link__shell
+              li
                 a.nav__link(href="#") Services
 
-              li.nav__link__shell
+              li
                 a.nav__link(href="#") Blog
 
-              li.nav__link__shell.nav__mega-dropdown__shell
+              li.has-dropdown.nav__mega-dropdown__shell
                 a.nav__link(href="#") Pages
                 //- Mega Dropdown
                 div.nav__mega-dropdown
+                  - var i = 0
+                  while i < 3
+                    - i++
+                    section.nav__mega-dropdown__unit
+                      header.nav__mega-dropdown__unit__title  Menu item 
+                        = i 
+                      ul
+                        - var n = 0
+                        while n < 5
+                          - n++
+                          li
+                            a.nav__mega-dropdown__unit__link(href="#") Menu item
+                              = i
+                              = n
+
                   section.nav__mega-dropdown__unit
-                    header.nav__mega-dropdown__unit__title Menu section 1
-                    ul
-                      li
-                        a.nav__mega-dropdown__unit__link Menu item 1
-                      li
-                        a.nav__mega-dropdown__unit__link Menu item 2
-                      li
-                        a.nav__mega-dropdown__unit__link Menu item 3
-                      li
-                        a.nav__mega-dropdown__unit__link Menu item 4                  
-                      li
-                        a.nav__mega-dropdown__unit__link Menu item 5
-                  
+                    header.nav__mega-dropdown__unit__title  Custom item
+                    img(src="data:image/png;base64,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", alt="")          
+                    
 
 
-              li.nav__link__shell.nav__dropdown__shell
+              li.has-dropdown.nav__dropdown__shell
                 a.nav__link(href="#") Shop
                 //- Dropdown 1-level
                 ul.nav__dropdown
-                  li.nav__dropdown__link__shell
+                  li
                     a.nav__dropdown__link(href="#") Menu item 1
 
-                  li.nav__dropdown__link__shell.nav__dropdown--sub__shell
+                  li.nav__dropdown--sub__shell
                     a.nav__dropdown__link(href="#") Menu item 2
                     //- Dropdown 2-level (right)
                     ul.nav__dropdown--sub.nav__dropdown--sub--R
-                      li.nav__dropdown__link__shell
+                      li
                         a.nav__dropdown__link(href="#") Menu item 2.1
 
-                      li.nav__dropdown__link__shell
+                      li
                         a.nav__dropdown__link(href="#") Menu item 2.2
 
-                      li.nav__dropdown__link__shell
+                      li
                         a.nav__dropdown__link(href="#") Menu item 2.3
 
-                  li.nav__dropdown__link__shell.nav__dropdown--sub__shell
+                  li.nav__dropdown--sub__shell
                     a.nav__dropdown__link(href="#") Menu item 3
                     //- Dropdown 2-level (left)
                     ul.nav__dropdown--sub.nav__dropdown--sub--L
-                      li.nav__dropdown__link__shell
+                      li
                         a.nav__dropdown__link(href="#") Menu item 3.1
 
-                      li.nav__dropdown__link__shell
+                      li
                         a.nav__dropdown__link(href="#") Menu item 3.2
 
-                      li.nav__dropdown__link__shell.nav__dropdown--sub__shell
+                      li.nav__dropdown--sub__shell
                         a.nav__dropdown__link(href="#") Menu item 3.3
 
                         //- Dropdown 3-level (left)
                         ul.nav__dropdown--sub.nav__dropdown--sub--L
-                          li.nav__dropdown__link__shell
+                          li
                             a.nav__dropdown__link(href="#") Menu item 3.3.1
 
-                          li.nav__dropdown__link__shell
+                          li
                             a.nav__dropdown__link(href="#") Menu item 3.3.3
 
-                          li.nav__dropdown__link__shell
+                          li
                             a.nav__dropdown__link(href="#") Menu item 3.3.3
 
 
 
-              li.nav__link__shell
-                a.nav__link(href="#")
+              li
+                span.nav__search__label.icon-
+                form.nav__search.is-active
+                  input.nav__search__input(placeholder="Type Your Request and Press Enter")
 
-              li.nav__link__shell
-                a.nav__link(href="#")
+
+              li
+                span.nav__shopcart__label
+                .nav__shopcart
+                  ul.nav__shopcart__list
+                    li
+                      article.nav__shopcart__unit
+                        aside.nav__shopcart__unit
+                        div.nav__shopcart__unit__main
+                          h3.nav__shopcart__unit__title iHome iDL46GC Lightning Dock Dual
+                          footer
+                            span.nav__shopcart__unit__quantity 1 x
+                            span.nav__shopcart__unit__price $ 299.99
+                            span.nav__shopcart__unit__action-delete
+
+                    li
+                      article.nav__shopcart__unit
+                        aside.nav__shopcart__unit
+                        div.nav__shopcart__unit__main
+                          h3.nav__shopcart__unit__title Harman Kardon Aura Wireless Speaker System
+                          footer
+                            span.nav__shopcart__unit__quantity 2 x
+                            span.nav__shopcart__unit__price $ 499.99
+                            span.nav__shopcart__unit__action-delete
+
+
 
 
 

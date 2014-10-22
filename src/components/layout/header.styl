@@ -76,7 +76,6 @@
     font-weight inherit
     color inherit
 
-
   &__shell
     background-color $header-bg-c
     border $header-border-c
@@ -111,11 +110,19 @@
 
 /*Navigation component*/
 .nav
+  $link-hover-c = #285FDB
+  $border-c = #eef0f2
+
+  -link()
+    display block
+    text-decoration none
+
+
   display inline-block
   text-align left
   hLine top
-  font-size 16px
-  font-family $brand-f
+  font: 100 16px $brand-f
+  color #6E7179
 
 
   &__shell
@@ -125,19 +132,17 @@
 
 
   &__link
-    display block
+    -link()
     position relative
     height 80px
     ctr-at @height
     padding-x 30px
-    margin-left -1px
+    margin -1px 0 -1px -1px
     border $border-c
-    border-y none
     background-color #fff
     overflow hidden
-    text-decoration none
-    trans border-bottom-color
 
+    //active label
     &:before
       pb left top
       size 100% 3px
@@ -145,19 +150,27 @@
       transform translateY(-100%)
       trans translate
 
+    //show active label
     &:hover,
     &:focus,
-    &__shell:hover &
-      border-bottom-color transparent
+    *:hover > &
+      
       &:before
         transform translateY(0)
+
+    //hide bottom border
+    *.has-dropdown:hover > &
+      border-bottom 0
+
 
 
   &__dropdown
     z-index -1
-    absolute left top 100%
+    absolute left -1px top 100%
     transform translateY(-100%)
     trans transform
+    font: 300 15px $base-f
+    color #8A8D94
 
     &__shell
       position relative
@@ -167,30 +180,21 @@
 
 
     &__link
-      display block
+      -link()
       width 210px
-      min-height 50px
-      padding-x 30px
+      padding 15px 30px
       background-color #fff
-      font-size 15px
-      font-weight 300
-      color #8A8D94 
+      font: 300 15px $base-f
       text-decoration none
-      trans()
       border $border-c
       margin-bottom -1px
-
-      .flexbox &
-        fLine flex-start center
-
-      .no-flexbox &
-        padding-y 10px
+      trans()
 
       &:hover,
       &:focus,
-      &__shell:hover > &  //only for top level unit
+      *:hover > &  //only for top level unit
         background-color #fbfcfd
-        color #285FDB
+        color $link-hover-c
 
     // sub-dropdown (can appear left or right, support infinite deeping level)
     &--sub
@@ -223,15 +227,90 @@
     border #E5E8EB
     border-radius 0px 0px 4px 4px
     box-shadow 0 1px 2px rgba(138, 141, 148, 0.1)
+    padding 15px
+    font: 300 15px $base-f
     
     &__shell:hover &
       transform translateY(0)
 
+    .flexbox &
+      fLine space-between stretch
 
     &__unit
+      width: 25%
+      padding 15px
+
+      .no-flexbox &
+        display table-cell
+
 
       &__title
-        test()
+        margin-bottom 30px
+        color #3C414C
+        font: 100 20px $brand-f
+
+      &__link
+        -link()
+        padding-y 15px
+        border-bottom 1px solid $border-c
+
+        &:hover
+          color $link-hover-c
+
+        *:last-child > &
+          border-bottom none
+          padding-bottom 0
 
 
-      
+  //search form
+  &__search
+    absolute top 100% left 50%
+    width: 100vw
+    margin-left -50vw
+    background-color #f5f7f8
+    trans transform
+    transform translateY(-100%)
+    padding-y 25px
+
+    .flexbox &
+      fLine center center
+
+    .no-flexbox &
+      display table-cell
+      vertical-align middle
+      text-align center
+
+
+    &.is-active
+      transform translateY(0)
+  
+
+    //visible part
+    &__label      
+      test()
+
+    &__input
+      width 400px
+      border none
+      background none
+      font-size 24px
+      height 30px
+
+      &:focus
+        outline none
+
+
+  //shopcart
+  &__shopcart
+    absolute top 100% left
+    trans transform
+    transform translateY(-100%)
+
+    &.is-active
+      transform translateY(0)
+
+    &__label
+      position relative
+
+
+  
