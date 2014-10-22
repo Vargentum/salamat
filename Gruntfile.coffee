@@ -188,7 +188,7 @@ module.exports = (grunt) ->
     watch:
       stylus:
         files: "./src/{,**/}*.styl"
-        tasks: ["process-styles"]
+        tasks: ["process-styles", "dss"]
 
       plugins:
         files: "<%= concat.plugins.src %>"
@@ -213,10 +213,6 @@ module.exports = (grunt) ->
         tasks: ["webfont"]
         options:
           reload: on
-
-      docs: 
-        files: "<%= project.styles %>"
-        tasks: ["dss"]
 
       livereload:
         options:
