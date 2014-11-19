@@ -6,12 +6,14 @@ $icon-fonts = ei  elegant-icons
              ,sli simple-line-icons
 
 for $each in $icon-fonts
-  .icon-{$each[0]}:before
-    font-family $each[1]
-    speak none  
-    font-weight normal
-    font-variant normal
-    text-transform none
-    line-height 1
-    -webkit-font-smoothing antialiased
-    -moz-osx-font-smoothing grayscale
+  .icon-{$each[0]}
+    line-height .75
+    &:before
+      font-family $each[1]
+      speak none  
+      font-weight normal
+      font-variant normal
+      text-transform none
+      line-height .75
+      -webkit-font-smoothing antialiased
+      -moz-osx-font-smoothing grayscale
