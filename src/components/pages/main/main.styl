@@ -1,2 +1,83 @@
 .p-main
   test()
+
+  &__slider
+    height 730px
+    overflow hidden
+
+    &>*
+      height inherit
+      text-align center
+
+
+    &__unit--1
+      background-image linear-gradient(to bottom, #7e44dd 0%,#874ad6 12%,#9453cc 25%,#da8495 78%,#e78d8b 91%,#ed9186 100%)
+      color $body-c
+
+      .flexbox &
+        fLine center center
+        flex-direction column
+
+      .no-flexbox &
+        display table-cell
+        vertical-align middle
+
+
+      &__header
+        title 30px
+
+      &__title
+        title 90px
+        text-transform uppercase
+        
+
+    // benefits list
+    &__benefits
+      margin-y 50px
+      hLine middle
+      text-align center      
+      title 20px
+      color $body-c
+
+      &__unit
+        width 200px
+        position relative
+
+        $icon-size = 72px
+
+        //divider
+        &:before
+          $w = 110px
+          pb top ($icon-size / 2) right
+          margin-right -($w / 2)
+          opacity 0.2
+          size $w 2px
+          background-color #FBFCFD
+
+        &:last-child:before
+          display none
+
+        &__icon
+          ctr-at-size $icon-size
+          background-color rgba(251, 252, 253, 0.2)
+          border rgba(238, 240, 242, .3)
+          margin 0 auto 20px
+          border-radius 50%
+          
+          .no-flexbox &
+            display block
+
+
+    &__btn
+      display inline-block
+      hLine middle 10px
+      text-decoration none
+      padding 16px 45px 18px
+      title 18px
+      line-height 1
+      text-transform uppercase
+
+      color $body-c
+      background-color #285FDB
+      border-radius 4px
+
