@@ -158,38 +158,46 @@ html.no-js(lang='en')
 
 
 
-              li
-                span.nav__search__label.icon-
-                form.nav__search.is-active
+              li.nav__search__shell
+                span.nav__link
+                  i.icon-sli.sli-magnifier
+                form.nav__search
                   input.nav__search__input(placeholder="Type Your Request and Press Enter")
 
 
-              li
-                span.nav__shopcart__label
+              li.nav__shopcart__shell
+                span.nav__link.nav__shopcart__label
+                  i.icon-sli.sli-bag
+                  span.nav__shopcart__label__counter 10
                 .nav__shopcart
                   ul.nav__shopcart__list
                     li
                       article.nav__shopcart__unit
-                        aside.nav__shopcart__unit
+                        aside.nav__shopcart__unit__photo
                         div.nav__shopcart__unit__main
                           h3.nav__shopcart__unit__title iHome iDL46GC Lightning Dock Dual
                           footer
-                            span.nav__shopcart__unit__quantity 1 x
+                            span.nav__shopcart__unit__quantity 1
                             span.nav__shopcart__unit__price $ 299.99
-                            span.nav__shopcart__unit__action-delete
+                            span.nav__shopcart__unit__action-delete.icon-ei.ei-close
 
                     li
                       article.nav__shopcart__unit
-                        aside.nav__shopcart__unit
+                        aside.nav__shopcart__unit__photo
+                          img(src="http://www.crydev.net/wiki/images/b/b5/Original.jpg")
                         div.nav__shopcart__unit__main
                           h3.nav__shopcart__unit__title Harman Kardon Aura Wireless Speaker System
                           footer
-                            span.nav__shopcart__unit__quantity 2 x
+                            span.nav__shopcart__unit__quantity 2
                             span.nav__shopcart__unit__price $ 499.99
-                            span.nav__shopcart__unit__action-delete
+                            span.nav__shopcart__unit__action-delete.icon-ei.ei-close
 
+                  dl.nav__shopcart__total
+                    dt Cart Subtotal:
+                    dd.nav__shopcart__total__price $ 3 399.95
 
-
+                  button.nav__shopcart__btn View cart
+                  button.nav__shopcart__btn.nav__shopcart__btn--accented Proceed to checkout
 
 
           a.header__logo(href='/')
